@@ -17,7 +17,7 @@ public class FlyBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame || Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             rb.velocity = Vector2.up * velocity;
             audioSource2.Play();
