@@ -14,7 +14,11 @@ public class Score : MonoBehaviour
     {
         if (instance == null){
             instance = this;  
-        }  
+        }
+        else
+        {
+            Destroy(this);
+        }
     }
     private void Start()
     {
