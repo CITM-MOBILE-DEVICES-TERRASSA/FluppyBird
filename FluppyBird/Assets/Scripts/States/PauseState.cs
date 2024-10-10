@@ -9,6 +9,7 @@ public class PauseState : GameState
         Debug.Log("Entering Pause State");
         Time.timeScale = 0f;
         gameManager.pauseCanvas.SetActive(true);
+        gameManager.restart.onClick.AddListener(delegate { TaskOnClick(); });
     }
 
     public override void UpdateState(GameManager gameManager)
@@ -23,6 +24,12 @@ public class PauseState : GameState
     {
         gameManager.pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void TaskOnClick()
+    {
+        Debug.Log("You have clicked the button!");
+
     }
 }
 

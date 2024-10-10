@@ -10,6 +10,7 @@ public class StartState : GameState
         Debug.Log("Entering Start State");
         // Mostrar UI para iniciar el juego
         gameManager.startCanvas.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public override void UpdateState(GameManager gameManager)

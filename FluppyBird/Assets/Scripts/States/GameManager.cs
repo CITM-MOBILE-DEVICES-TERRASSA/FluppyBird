@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverCanvas;
 
     public int playerHealth = 3;
+
+    public Button restart;
+
+    public Button despause;
 
     private void Awake()
     {
@@ -28,6 +33,8 @@ public class GameManager : MonoBehaviour
 
         currentState = new StartState();
         currentState.EnterState(this);
+        
+        
     }
 
     private void Update()
@@ -40,5 +47,24 @@ public class GameManager : MonoBehaviour
         currentState.ExitState(this);
         currentState = newState;
         currentState.EnterState(this);
+    }
+
+    public void RestartScene()
+    {
+        gameOverCanvas.SetActive(false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Awake();
+    }
+
+    public void Despause()
+    {
+        
+        SwitchState(new GameplayState());
+        
+    }
+
+    public void Beggin()
+    {
+        SwitchState(new GameplayState());
     }
 }
