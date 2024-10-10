@@ -14,7 +14,7 @@ public class GameOverState : GameState
 
         // Iniciar un retraso para reiniciar el juego
         
-        gameManager.restart.onClick.AddListener(delegate { TaskOnClick(); });
+        
         Time.timeScale = 0f;
 
     }
